@@ -1,0 +1,14 @@
+# Local and environment files
+.env
+.env.*
+!.env.example
+node_modules/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local agent instructions are workspace-only
+AGENTS.md

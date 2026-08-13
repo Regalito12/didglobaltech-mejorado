@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>Windows Server</title>
+  <defs>
+    <linearGradient id="windows-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5ce1d2"/>
+      <stop offset="1" stop-color="#2aa7e8"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#windows-blue)">
+    <path d="M8 18 58 10v49H8z"/>
+    <path d="m66 9 54-9v59H66z"/>
+    <path d="M8 68h50v50l-50-8z"/>
+    <path d="m66 68h54v60l-54-9z"/>
+  </g>
+</svg>

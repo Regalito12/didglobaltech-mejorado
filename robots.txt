@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://didglobaltech.com/sitemap.xml
