@@ -216,6 +216,9 @@ const createFilterBar = (group, labels, cards, insertionPoint) => {
       card.hidden = !visible;
       card.setAttribute('aria-hidden', String(!visible));
     });
+    const visibleCount = cards.filter((card) => !card.hidden).length;
+    insertionPoint.dataset.visibleCount = String(visibleCount);
+    if (group === 'brands') insertionPoint.style.setProperty('--brand-columns', String(Math.min(5, visibleCount)));
   };
   labels.forEach(([value, label], index) => {
     const button = document.createElement('button');
