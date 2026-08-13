@@ -943,7 +943,7 @@ body[data-page="proyectos"] { --module-intro-image: url("assets/visual-datacente
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: -42px 0 25px;
+  margin: 30px 0 28px;
   padding: 8px;
   border: 1px solid rgba(92, 225, 210, .12);
   background: rgba(13, 23, 36, .72);
@@ -973,6 +973,35 @@ body[data-page="proyectos"] { --module-intro-image: url("assets/visual-datacente
 .filter-bar button:active { transform: translateY(1px); }
 .service-card.filter-hidden,
 .brand-grid > div.filter-hidden { display: none; }
+
+/* The filter sits between the visual intro and the brand wall; it should never cover the artwork. */
+.module-page .filter-bar {
+  position: relative;
+  z-index: 3;
+}
+
+.module-page .brand-grid {
+  margin-top: 0;
+}
+
+/* Brand wall: one baseline, one row height, no decorative vertical offsets. */
+.module-page .brand-grid > div,
+.module-page .brand-grid > div:nth-child(3n + 2) {
+  min-height: 136px;
+  height: 136px;
+  transform: none;
+}
+
+.module-page .brand-grid > div:hover,
+.module-page .brand-grid > div:focus-within,
+.module-page .brand-grid > div:nth-child(3n + 2):hover,
+.module-page .brand-grid > div:nth-child(3n + 2):focus-within {
+  transform: translateY(-5px);
+}
+
+.module-page .brand-grid img {
+  height: 48px;
+}
 
 .process-panel {
   display: grid;
@@ -1130,7 +1159,7 @@ body[data-page="proyectos"] { --module-intro-image: url("assets/visual-datacente
 .whatsapp-float strong { font: 10px "DM Mono", monospace; letter-spacing: .05em; }
 
 @media (max-width: 900px) {
-  .filter-bar { margin: -22px 0 22px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin; }
+  .filter-bar { margin: 24px 0 22px; overflow-x: auto; flex-wrap: nowrap; scrollbar-width: thin; }
   .filter-bar button { flex: 0 0 auto; white-space: nowrap; }
   .process-panel { grid-template-columns: 1fr; gap: 27px; margin-top: 65px; padding: 26px 20px; }
   .process-track { grid-template-columns: repeat(2, 1fr); }
@@ -1413,8 +1442,9 @@ body.module-page .page-section {
 }
 
 @media (max-width: 900px) {
-  .module-page .brand-grid > div { min-height: 136px; }
-  .module-page .brand-grid img { width: min(138px, 88%); height: 48px; }
+  .module-page .brand-grid > div,
+  .module-page .brand-grid > div:nth-child(3n + 2) { min-height: 124px; height: 124px; }
+  .module-page .brand-grid img { width: min(138px, 88%); height: 44px; }
 }
 
 /* The animated network projects its focal point at x=.71 / y=.52.
@@ -1495,4 +1525,33 @@ body[data-page="marcas"] .section-intro > .section-index::after {
     transform: none;
     animation: none;
   }
+}
+
+/* Final brand wall alignment: keep every card on the same baseline and compact the density. */
+.module-page .brand-grid > div,
+.module-page .brand-grid > div:nth-child(3n + 2) {
+  min-height: 136px;
+  height: 136px;
+  transform: none;
+}
+
+.module-page .brand-grid > div:hover,
+.module-page .brand-grid > div:focus-within,
+.module-page .brand-grid > div:nth-child(3n + 2):hover,
+.module-page .brand-grid > div:nth-child(3n + 2):focus-within {
+  transform: translateY(-5px);
+}
+
+.module-page .brand-grid img {
+  height: 48px;
+}
+
+@media (max-width: 900px) {
+  .module-page .brand-grid > div,
+  .module-page .brand-grid > div:nth-child(3n + 2) {
+    min-height: 124px;
+    height: 124px;
+  }
+
+  .module-page .brand-grid img { height: 44px; }
 }

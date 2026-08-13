@@ -217,6 +217,21 @@ const createFilterBar = (group, labels, cards, insertionPoint) => {
   bar.dataset.filterBar = group;
   bar.setAttribute('role', 'tablist');
   bar.setAttribute('aria-label', `Filtrar ${group}`);
+  const applyFilter = (value) => {
+    labels.forEach(([option]) => {
+      const optionButton = bar.querySelector(`[data-filter-value="${option}"]`);
+      const active = option === value;
+      optionButton?.classList.toggle('is-active', active);
+      optionButton?.setAttribute('aria-selected', String(active));
+      optionButton?.setAttribute('tabindex', active ? '0' : '-1');
+    });
+    cards.forEach((card) => {
+      const visible = value === 'all' || card.dataset.filterCategory === value;
+      card.classList.toggle('filter-hidden', !visible);
+      card.hidden = !visible;
+      card.setAttribute('aria-hidden', String(!visible));
+    });
+  };
   labels.forEach(([value, label], index) => {
     const button = document.createElement('button');
     button.type = 'button';
@@ -224,22 +239,28 @@ const createFilterBar = (group, labels, cards, insertionPoint) => {
     button.dataset.filterValue = value;
     button.setAttribute('role', 'tab');
     button.setAttribute('aria-selected', String(index === 0));
+    button.setAttribute('tabindex', index === 0 ? '0' : '-1');
     button.textContent = label;
-    button.addEventListener('click', () => {
-      labels.forEach(([option]) => {
-        const optionButton = bar.querySelector(`[data-filter-value="${option}"]`);
-        const active = option === value;
-        optionButton?.classList.toggle('is-active', active);
-        optionButton?.setAttribute('aria-selected', String(active));
-      });
-      cards.forEach((card) => {
-        const visible = value === 'all' || card.dataset.filterCategory === value;
-        card.classList.toggle('filter-hidden', !visible);
-        card.setAttribute('aria-hidden', String(!visible));
-      });
+    button.addEventListener('click', () => applyFilter(value));
+    button.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        const next = (index + 1) % labels.length;
+        const nextButton = bar.querySelector(`[data-filter-value="${labels[next][0]}"]`);
+        nextButton?.focus();
+        applyFilter(labels[next][0]);
+      }
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        const previous = (index - 1 + labels.length) % labels.length;
+        const previousButton = bar.querySelector(`[data-filter-value="${labels[previous][0]}"]`);
+        previousButton?.focus();
+        applyFilter(labels[previous][0]);
+      }
     });
     bar.append(button);
   });
+  applyFilter(labels[0][0]);
   insertionPoint.parentElement.insertBefore(bar, insertionPoint);
 };
 
