@@ -1525,7 +1525,6 @@ body[data-page="marcas"] .section-intro > .section-index::after {
 .text-motion .motion-word {
   display: inline-block;
   opacity: 0;
-  clip-path: inset(0 0 100% 0);
   transform: translate3d(0, .68em, 0) rotate(2deg);
 }
 
@@ -1540,8 +1539,8 @@ body[data-page="marcas"] .section-intro > .section-index::after {
 }
 
 @keyframes word-rise {
-  0% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate3d(0, .68em, 0) rotate(2deg); }
-  100% { opacity: 1; clip-path: inset(0); transform: none; }
+  0% { opacity: 0; transform: translate3d(0, .68em, 0) rotate(2deg); }
+  100% { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1611,13 +1610,6 @@ body[data-page="marcas"] .section-intro > .section-index::after {
 }
 
 .text-motion .motion-word {
-  clip-path: none;
   overflow: visible;
-  padding-bottom: .08em;
-  margin-bottom: -.08em;
-}
-
-@keyframes word-rise {
-  0% { opacity: 0; transform: translate3d(0, .68em, 0) rotate(2deg); }
-  100% { opacity: 1; transform: none; }
+  line-height: inherit;
 }
