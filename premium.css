@@ -1583,3 +1583,41 @@ body[data-page="marcas"] .section-intro > .section-index::after {
 
   .module-page .brand-grid img { height: 44px; }
 }
+
+/* Typography safety pass: preserve descenders during reveals and tight display headings. */
+.hero-copy h1,
+.module-page .section-intro h1,
+.module-page .section-intro h2,
+.module-directory h2,
+.executive-copy h2,
+.solution-copy h2,
+.process-heading h2,
+.case-heading h2,
+.ecosystem-map-copy h2,
+.faq-panel h2,
+.contact-copy h1,
+.legal-content h1 {
+  line-height: 1.01;
+  padding-bottom: .08em;
+}
+
+.image-tile h2,
+.security-card h2,
+.service-card h2,
+.project-card h2,
+.case-study-card h3 {
+  line-height: 1.08;
+  padding-bottom: .08em;
+}
+
+.text-motion .motion-word {
+  clip-path: none;
+  overflow: visible;
+  padding-bottom: .08em;
+  margin-bottom: -.08em;
+}
+
+@keyframes word-rise {
+  0% { opacity: 0; transform: translate3d(0, .68em, 0) rotate(2deg); }
+  100% { opacity: 1; transform: none; }
+}
