@@ -892,36 +892,36 @@ body[data-page="proyectos"] { --module-intro-image: url("assets/service-manageme
 }
 
 /* Final additions: richer imagery, discovery tools and conversion details. */
-body[data-page="nosotros"] { --module-intro-image: url("assets/visual-operations-v2.webp"); }
-body[data-page="ciberseguridad"] { --module-intro-image: url("assets/visual-security-v2.webp"); }
-body[data-page="servicios"] { --module-intro-image: url("assets/visual-network-v2.webp"); }
-body[data-page="soluciones"] { --module-intro-image: url("assets/visual-operations-v2.webp"); }
-body[data-page="marcas"] { --module-intro-image: url("assets/visual-security-v2.webp"); }
-body[data-page="proyectos"] { --module-intro-image: url("assets/visual-datacenter-v2.webp"); }
+body[data-page="nosotros"] { --module-intro-image: url("assets/infrastructure-control.png"); }
+body[data-page="ciberseguridad"] { --module-intro-image: url("assets/service-security.png"); }
+body[data-page="servicios"] { --module-intro-image: url("assets/service-cctv.png"); }
+body[data-page="soluciones"] { --module-intro-image: url("assets/service-platforms.png"); }
+body[data-page="marcas"] { --module-intro-image: url("assets/service-network.png"); }
+body[data-page="proyectos"] { --module-intro-image: url("assets/service-management.png"); }
 
-.module-card:nth-child(1) { --module-image: url("assets/visual-operations-v2.webp"); }
-.module-card:nth-child(2) { --module-image: url("assets/visual-security-v2.webp"); }
-.module-card:nth-child(3) { --module-image: url("assets/visual-network-v2.webp"); }
-.module-card:nth-child(4) { --module-image: url("assets/visual-operations-v2.webp"); }
-.module-card:nth-child(5) { --module-image: url("assets/visual-security-v2.webp"); }
-.module-card:nth-child(6) { --module-image: url("assets/visual-datacenter-v2.webp"); }
-.module-card:nth-child(7) { --module-image: url("assets/visual-security-v2.webp"); }
+.module-card:nth-child(1) { --module-image: url("assets/infrastructure-control.png"); }
+.module-card:nth-child(2) { --module-image: url("assets/service-security.png"); }
+.module-card:nth-child(3) { --module-image: url("assets/service-cctv.png"); }
+.module-card:nth-child(4) { --module-image: url("assets/service-platforms.png"); }
+.module-card:nth-child(5) { --module-image: url("assets/service-network.png"); }
+.module-card:nth-child(6) { --module-image: url("assets/service-management.png"); }
+.module-card:nth-child(7) { --module-image: url("assets/service-consulting.png"); }
 
-.project-card:nth-child(1) { --project-image: url("assets/visual-network-v2.webp"); }
-.project-card:nth-child(2) { --project-image: url("assets/visual-operations-v2.webp"); }
-.project-card:nth-child(3) { --project-image: url("assets/visual-security-v2.webp"); }
-.project-card:nth-child(4) { --project-image: url("assets/visual-datacenter-v2.webp"); }
+.project-card:nth-child(1) { --project-image: url("assets/service-network.png"); }
+.project-card:nth-child(2) { --project-image: url("assets/service-electronic-security.png"); }
+.project-card:nth-child(3) { --project-image: url("assets/service-platforms.png"); }
+.project-card:nth-child(4) { --project-image: url("assets/service-management.png"); }
 
 .solution-image {
-  background-image: linear-gradient(0deg, rgba(8, 13, 22, .88), rgba(8, 13, 22, .1)), url("assets/visual-network-v2.webp");
+  background-image: linear-gradient(0deg, rgba(8, 13, 22, .88), rgba(8, 13, 22, .1)), url("assets/service-network.png");
 }
 
 .tile-security {
-  background-image: linear-gradient(0deg, rgba(8, 13, 22, .9), rgba(8, 13, 22, .05)), url("assets/visual-security-v2.webp");
+  background-image: linear-gradient(0deg, rgba(8, 13, 22, .9), rgba(8, 13, 22, .05)), url("assets/service-security.png");
 }
 
 .tile-infrastructure {
-  background-image: linear-gradient(0deg, rgba(8, 13, 22, .9), rgba(8, 13, 22, .05)), url("assets/visual-network-v2.webp");
+  background-image: linear-gradient(0deg, rgba(8, 13, 22, .9), rgba(8, 13, 22, .05)), url("assets/infrastructure-control.png");
 }
 
 .filter-bar {
