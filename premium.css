@@ -643,16 +643,6 @@
   transition: width .18s ease-out;
 }
 
-body.is-navigating {
-  overflow: hidden;
-}
-
-.transition-curtain.route-exit {
-  transform: scaleY(0);
-  transform-origin: bottom;
-  animation: route-exit .28s cubic-bezier(.76, 0, .24, 1) forwards;
-}
-
 body[data-page="nosotros"] .about {
   background: radial-gradient(circle at 22% 12%, rgba(56, 144, 150, .16), transparent 32%), var(--bg);
 }
@@ -732,11 +722,6 @@ body[data-page="contacto"] .contact {
 
 .contact-form .button {
   margin-top: 16px;
-}
-
-@keyframes route-exit {
-  0% { transform: scaleY(0); transform-origin: bottom; }
-  100% { transform: scaleY(1); transform-origin: bottom; }
 }
 
 @keyframes module-arrive {

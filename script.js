@@ -1,7 +1,6 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
-const curtain = document.querySelector('.transition-curtain');
 
 menu?.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') === 'true';
@@ -11,10 +10,6 @@ menu?.addEventListener('click', () => {
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
   menu?.setAttribute('aria-expanded', 'false');
   nav?.classList.remove('is-open');
-  if (!reducedMotion && link.hash) {
-    curtain?.classList.remove('is-active');
-    requestAnimationFrame(() => curtain?.classList.add('is-active'));
-  }
 }));
 
 const revealObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
@@ -56,16 +51,6 @@ const updateScrollState = () => {
 addEventListener('scroll', updateScrollState, { passive: true });
 addEventListener('resize', updateScrollState, { passive: true });
 updateScrollState();
-
-document.querySelectorAll('a[href$=".html"]').forEach((link) => link.addEventListener('click', (event) => {
-  if (reducedMotion || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0 || document.body.classList.contains('is-navigating')) return;
-  const target = new URL(link.href, location.href);
-  if (target.origin !== location.origin || target.pathname === location.pathname) return;
-  event.preventDefault();
-  document.body.classList.add('is-navigating');
-  curtain?.classList.add('route-exit');
-  window.setTimeout(() => { window.location.href = target.href; }, 260);
-}));
 
 const slides = [
   { image: 'assets/visual-network-v2.webp', eyebrow: 'INFRAESTRUCTURA QUE CONECTA', title: 'Redes listas para<br /><em>crecer.</em>', copy: 'Diseñamos WAN/LAN, Wi-Fi empresarial y cableado estructurado para que cada área trabaje con más velocidad, estabilidad y visibilidad.' },
