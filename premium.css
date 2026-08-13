@@ -1613,3 +1613,12 @@ body[data-page="marcas"] .section-intro > .section-index::after {
   overflow: visible;
   line-height: inherit;
 }
+
+/* Grid cards must fade in without changing their row geometry. The stagger remains,
+   but a temporary translateY would make the middle column appear misaligned. */
+.service-grid > .service-card.reveal,
+.project-grid > .project-card.reveal,
+.security-cards > .security-card.reveal,
+.case-grid > .case-study-card.reveal {
+  transform: none;
+}
